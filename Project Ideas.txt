@@ -1,0 +1,15 @@
+﻿
+=============================================
+Project
+
+- Mini Social Network App (Spring based): Quick Looker
+  - registering
+  - chat
+  - profile configuration
+  - list all users
+  - news feed
+    - For beginning every user will post on his own page and others will be able to see published posts by visiting his page.
+    - Also all user's new posts will appear in news feed page in date order
+  - uploading photos, videos, music, documents
+  - listening music, wathing videos and photos, reading documents
+
