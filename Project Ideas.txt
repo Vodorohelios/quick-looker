@@ -3,7 +3,9 @@
 Project
 
 - Mini Social Network App (Spring based): Quick Looker
-  - registering
+  - registering, user authentication and authorization
+    - use spring security
+      - create tables (for username, password etc.)
   - chat
   - profile configuration
   - list all users
