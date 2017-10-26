@@ -12,10 +12,12 @@ import java.util.Set;
 @Table(name="users")
 public class User {
     @Id
+    @Column(name="username")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Size(min=5, max=16)
     private String username;
 
+    @Column(name="password")
     @NotNull
     @Size(min=5, max=25)
     // TODO think about passwordHash
@@ -24,14 +26,17 @@ public class User {
     @NotNull
     private boolean enabled;
 
+    @Column(name="first_name")
     @NotNull
     @Size(min=2, max=30)
     private String firstName;
 
+    @Column(name="last_name")
     @NotNull
     @Size(min=2, max=30)
     private String lastName;
 
+    @Column(name="email")
     @NotNull
     @Email
     private String email;

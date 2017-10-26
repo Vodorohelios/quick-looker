@@ -19,5 +19,7 @@ create table posts(
 	id int(20) NOT NULL primary key,
 	title varchar(50) not null,
 	body LONGTEXT not null,
-	date timestamp not null
+	date timestamp not null,
+    author varchar(50) not null,
+    constraint fk_posts_users foreign key(author) references users(username)
 );
