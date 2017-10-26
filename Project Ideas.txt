@@ -5,7 +5,7 @@ Project
 - examples:
 http://www.nakov.com/blog/2016/08/05/creating-a-blog-system-with-spring-mvc-thymeleaf-jpa-and-mysql/
 
-- Mini Social Network App (Spring based): Quick Looker
+- Mini Social Networking Web App (Spring based): Quick Looker
   - registering, user authentication and authorization
     - use spring security
       - create tables (for username, password etc.)
