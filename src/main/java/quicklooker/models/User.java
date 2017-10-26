@@ -13,13 +13,12 @@ import java.util.Set;
 public class User {
     @Id
     @Column(name="username")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Size(min=5, max=16)
+    @Size(min=5, max=16, message="{username.size}")
     private String username;
 
     @Column(name="password")
     @NotNull
-    @Size(min=5, max=25)
+    @Size(min=5, max=25, message="{password.size}")
     // TODO think about passwordHash
     private String password;
 
@@ -28,23 +27,32 @@ public class User {
 
     @Column(name="first_name")
     @NotNull
-    @Size(min=2, max=30)
+    @Size(min=2, max=30, message="{firstName.size}")
     private String firstName;
 
     @Column(name="last_name")
     @NotNull
-    @Size(min=2, max=30)
+    @Size(min=2, max=30, message="{lastName.size}")
     private String lastName;
 
     @Column(name="email")
     @NotNull
-    @Email
+    @Email(message="{email.valid}")
     private String email;
 
     @OneToMany(mappedBy = "author")
     private Set<Post> posts = new HashSet<>();
 
     public User() {
+    }
+
+    public User(String username, String password, boolean enabled, String firstName, String lastName, String email) {
+        this.username = username;
+        this.password = password;
+        this.enabled = enabled;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
     }
 
     public String getUsername() {

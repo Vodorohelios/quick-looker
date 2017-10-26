@@ -29,6 +29,16 @@ public class Post {
     @JoinColumn(name="author")
     private User author;
 
+    public Post() {
+    }
+
+    public Post(String title, String body, Date date, User author) {
+        this.title = title;
+        this.body = body;
+        this.date = date;
+        this.author = author;
+    }
+
     public Long getId() {
         return id;
     }

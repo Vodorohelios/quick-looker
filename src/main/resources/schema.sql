@@ -16,7 +16,7 @@ create table authorities (
 );
 
 create table posts(
-	id int(20) NOT NULL primary key,
+	id int(20) NOT NULL primary key auto_increment,
 	title varchar(50) not null,
 	body LONGTEXT not null,
 	date timestamp not null,

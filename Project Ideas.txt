@@ -6,18 +6,34 @@ Project
 http://www.nakov.com/blog/2016/08/05/creating-a-blog-system-with-spring-mvc-thymeleaf-jpa-and-mysql/
 
 - Mini Social Networking Web App (Spring based): Quick Looker
+===========================================
+Pages:
+  - (home) main page
+    - lists all users and has register button (at the top)
+    - if you click some user you go to his profile page with his posts
+  - (profile) user's profile page
+    - contains his user data and his posts (at the top of the page)
+    - if user is on his own page (js/ajax functionality)
+      - appears create new post button.
+      - near every user's post appears edit and delete buttons
+  - (registerForm) registration form
+    - after registration user appears at his own page
+  - (login) page for authentication (Spring Security functionality)
+============================================
+Functionality:
   - registering, user authentication and authorization
+    ! first check crud operations with users and posts (create new users and posts from application)
     - use spring security
       - create tables (for username, password etc.)
-  - chat
-  - profile configuration
-  - list all users
   - ability to post on own page
     - ability to provide picture, video or document to post
+  - list all users, groups (using filters)
   - news feed
     - For beginning every user will post on his own page and others will be able to see published posts by visiting his page.
     - Also all user's new posts will appear in news feed page in date order
-  - uploading photos, videos, music, documents
+  - chat functionality between users
+  - user profile configuration (e.g. load profile picture)
+  - uploading photos, videos, music, documents (on user's page or post)
   - listening music, wathing videos and photos, reading documents
-  - connecting a user's profile with those of other individuals or groups
+  - connecting a user's profile with those of other individuals or groups (friends and groups)
 

@@ -7,7 +7,7 @@
           href="<c:url value="/resources/style.css" />" >
   </head>
   <body>
-    <h1>Welcome to Quick Looker!</h1>
+    <h1><s:message code="quicklooker.welcome" text="Welcome" /></h1>
     <table border="1">
         <tr>
             <th>username</th>
