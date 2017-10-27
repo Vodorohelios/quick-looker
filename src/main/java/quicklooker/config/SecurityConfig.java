@@ -39,7 +39,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/").authenticated()
         .antMatchers("/posts/create").authenticated()
         .antMatchers("/posts/delete").authenticated()
-        .antMatchers(HttpMethod.POST, "/spittles").authenticated()
         .anyRequest().permitAll();
   }
   
@@ -47,7 +46,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
     auth
       .jdbcAuthentication()
-            .dataSource(dataSource);
+            .dataSource(dataSource)
+            .usersByUsernameQuery(
+                    "select username, password, true " +
+                    "from users where username=?")
+            .authoritiesByUsernameQuery(
+                    "select username, 'ROLE_USER' from users where username=?");
   }
   
 }
