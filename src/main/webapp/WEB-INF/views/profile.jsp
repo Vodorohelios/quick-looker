@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page session="false" %>
 <html>
   <head>
@@ -15,7 +16,8 @@
 
     <hr />
     <a href="<s:url value="/" />">Main Page</a> <br />
-    <div class="spittleForm">
+    <security:authorize access="isAuthenticated() and principal.username == '${user.username}'">
+        <div class="spittleForm">
           <h1>Write new post</h1>
           <s:url value="/posts/create" var="createUrl" />
           <sf:form method="POST" name="postForm" modelAttribute="postForm" action="${createUrl}">
@@ -27,6 +29,7 @@
             <input type="submit" value="Post" />
           </sf:form>
         </div>
+    </security:authorize>
     <hr />
 
     <h2>Posts</h2>
@@ -41,9 +44,11 @@
             <br />
             <div>
               <span class="postDate"><c:out value="${post.date}" /></span>
-              <small>
-                <a href="<s:url value="/posts/delete/${post.id}?username=${user.username}" />">[Delete]</a>
-              </small>
+              <security:authorize access="isAuthenticated() and principal.username == '${user.username}'">
+                  <small>
+                    <a href="<s:url value="/posts/delete/${post.id}?username=${user.username}" />">[Delete]</a>
+                  </small>
+              </security:authorize>
             </div>
           </li>
           <hr />

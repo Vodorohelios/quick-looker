@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import java.util.regex.Pattern;
 
 @Configuration
-@Import(DataConfig.class)
+@Import({DataConfig.class, SecurityConfig.class})
 @EnableJpaRepositories(basePackages="quicklooker.repositories")
 @ComponentScan(basePackages={"quicklooker.services", "quicklooker.models", "quicklooker.repositories"})
 public class RootConfig {
