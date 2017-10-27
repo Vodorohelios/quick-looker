@@ -40,7 +40,7 @@ public class User {
     @Email(message="{email.valid}")
     private String email;
 
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
     private Set<Post> posts = new HashSet<>();
 
     public User() {

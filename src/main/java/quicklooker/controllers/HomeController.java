@@ -27,15 +27,7 @@ public class HomeController {
 
   @RequestMapping(method = RequestMethod.GET)
   public String home(Model model) {
-    User user = new User("Chiki", "chiki", true, "Chikiti", "Chihihi",
-            "chiki@mail.com");
-    userRepository.save(user);
-
-    Post post = new Post("New post!", "Hahahahhaha", new Date(), user);
-    postRepository.save(post);
-
     model.addAttribute("users", userRepository.findAll());
-    model.addAttribute("posts", postRepository.findAll());
     return "home";
   }
 }
