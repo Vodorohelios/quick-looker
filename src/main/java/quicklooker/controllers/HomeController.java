@@ -17,12 +17,10 @@ import java.util.Date;
 public class HomeController {
 
   private UserRepository userRepository;
-  private PostRepository postRepository;
 
   @Autowired
-  HomeController(UserRepository userRepository, PostRepository postRepository) {
+  HomeController(UserRepository userRepository) {
     this.userRepository = userRepository;
-    this.postRepository = postRepository;
   }
 
   @RequestMapping(method = RequestMethod.GET)
