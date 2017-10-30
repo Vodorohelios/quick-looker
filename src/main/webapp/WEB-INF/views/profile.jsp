@@ -33,6 +33,10 @@
 <a href="<s:url value="/" />">Main Page</a> <br/>
 <security:authorize access="isAuthenticated() and principal.username == '${user.username}'">
     <div class="spittleForm">
+        <s:url value="user/delete/${user.username}" var="deleteUrl" />
+        <form method="post" action="${deleteUrl}">
+            <input type="submit" value="Delete this profile" />
+        </form>
         <h1>Write new post</h1>
         <s:url value="/posts/create" var="createUrl"/>
         <sf:form method="POST" name="postForm" modelAttribute="postForm" action="${createUrl}">

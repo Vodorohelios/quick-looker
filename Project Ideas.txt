@@ -25,6 +25,8 @@ Functionality:
     +! first check crud operations with users and posts (create new users and posts from application)
     + use spring security
       - create tables (for username, password etc.)
+  - User can delete his profile (on his page)
+    - delete profile button on user's page.
   -+ ability to post on own page
     -+ (without attachment at the moment) ability to provide picture, video or document to post
   - list all users, groups (using filters)
@@ -36,4 +38,6 @@ Functionality:
   - uploading photos, videos, music, documents (on user's page or post)
   - listening music, wathing videos and photos, reading documents
   - connecting a user's profile with those of other individuals or groups (friends and groups)
+  - Add Internationalization and Localization (english and russian languages)
+    - add ability to change language in settings
 
