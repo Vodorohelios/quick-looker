@@ -10,11 +10,11 @@ import quicklooker.forms.PostForm;
 import quicklooker.models.Post;
 import quicklooker.models.User;
 import quicklooker.repositories.UserRepository;
+import quicklooker.services.UserService;
 
 import javax.validation.Valid;
 
 import java.util.HashSet;
-import java.util.Set;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -22,11 +22,11 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-  private UserRepository userRepository;
+  private UserService userService;
 
   @Autowired
-  public UserController(UserRepository userRepository) {
-    this.userRepository = userRepository;
+  public UserController(UserService userService) {
+    this.userService = userService;
   }
 
   @RequestMapping(value="/register", method=GET)
@@ -43,14 +43,14 @@ public class UserController {
     }
 
     user.setPosts(new HashSet<Post>());
-    userRepository.save(user);
+    userService.save(user);
     model.addAttribute("username", user.getUsername());
     return "redirect:/user/{username}";
   }
 
   @RequestMapping(value="/{username}", method=GET)
   public String showUserProfile(@PathVariable String username, Model model) {
-    User user = userRepository.findByUsername(username);
+    User user = userService.findByUsername(username);
     model.addAttribute("user", user);
     model.addAttribute("postForm", new PostForm());
     return "profile";

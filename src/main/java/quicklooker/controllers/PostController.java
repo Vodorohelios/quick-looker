@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import quicklooker.forms.PostForm;
 import quicklooker.models.Post;
-import quicklooker.models.User;
 import quicklooker.repositories.PostRepository;
 import quicklooker.repositories.UserRepository;
+import quicklooker.services.PostService;
+import quicklooker.services.UserService;
 
 import java.util.Date;
 
@@ -19,21 +20,21 @@ import java.util.Date;
 @RequestMapping("/posts")
 public class PostController {
 
-  private PostRepository postRepository;
-  private UserRepository userRepository;
+  private PostService postService;
+  private UserService userService;
 
   @Autowired
-  PostController(PostRepository postRepository, UserRepository userRepository) {
-    this.postRepository = postRepository;
-    this.userRepository = userRepository;
+  PostController(PostService postService, UserService userService) {
+    this.postService = postService;
+    this.userService = userService;
   }
 
   @RequestMapping(value="/create", method = RequestMethod.POST)
   public String createPost(
           PostForm form,
           Model model) {
-    postRepository.save(new Post(form.getTitle(), form.getMessage(), new Date(),
-            userRepository.findByUsername(form.getUsername())));
+    postService.save(new Post(form.getTitle(), form.getMessage(), new Date(),
+            userService.findByUsername(form.getUsername())));
 
     model.addAttribute("username", form.getUsername());
     return "redirect:/user/{username}";
@@ -44,7 +45,7 @@ public class PostController {
           @PathVariable("id") Long id,
           @RequestParam(value="username") String username,
           Model model) {
-    postRepository.delete(postRepository.findById(id));
+    postService.delete(postService.findById(id));
 
     model.addAttribute("username", username);
     return "redirect:/user/{username}";
