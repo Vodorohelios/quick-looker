@@ -24,4 +24,9 @@ public class HomeController {
     model.addAttribute("users", userService.findAll());
     return "home";
   }
+
+  @RequestMapping(value = "/testerror", method = RequestMethod.GET)
+    public String testError() throws Exception {
+    throw new Exception("Testing ErrorHandlerFilter!");
+  }
 }

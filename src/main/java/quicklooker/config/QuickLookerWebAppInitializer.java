@@ -1,6 +1,9 @@
 package quicklooker.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import quicklooker.filters.ErrorHandlerFilter;
+
+import javax.servlet.Filter;
 
 public class QuickLookerWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -17,6 +20,11 @@ public class QuickLookerWebAppInitializer extends AbstractAnnotationConfigDispat
     @Override
     protected String[] getServletMappings() {
         return new String[] { "/" };
+    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        return new Filter[] { new ErrorHandlerFilter() };
     }
 
 }
