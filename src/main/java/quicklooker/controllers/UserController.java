@@ -59,7 +59,7 @@ public class UserController {
   @RequestMapping(value="/delete/{username}", method=POST)
   public String deleteUser(@PathVariable String username) {
     userService.deleteByUsername(username);
-    return "/home";
+    return "redirect:/";
   }
 
 }

@@ -11,9 +11,6 @@
 
     <script type="text/javascript">
         function deletePost(username, elementId, postId) {
-            console.log("username " + username);
-            console.log("postId " + postId);
-
             var xhttp;
             xhttp = new XMLHttpRequest();
             xhttp.open("GET", "/posts/delete/" + postId + "?username=" + username, true);
@@ -32,9 +29,11 @@
 <hr/>
 <a href="<s:url value="/" />">Main Page</a> <br/>
 <security:authorize access="isAuthenticated() and principal.username == '${user.username}'">
+    <br />
     <div class="spittleForm">
-        <s:url value="user/delete/${user.username}" var="deleteUrl" />
+        <s:url value="/user/delete/${user.username}" var="deleteUrl" />
         <form method="post" action="${deleteUrl}">
+            <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
             <input type="submit" value="Delete this profile" />
         </form>
         <h1>Write new post</h1>

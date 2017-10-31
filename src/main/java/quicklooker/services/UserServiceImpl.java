@@ -33,6 +33,7 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public void deleteByUsername(String username) {
-    userRepository.deleteByUsername(username);
+    User user = userRepository.findByUsername(username);
+    userRepository.delete(user);
   }
 }

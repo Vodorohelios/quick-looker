@@ -37,7 +37,7 @@ public class PostControllerTest {
     )
             .andExpect(redirectedUrl("/user/Alex"));
 
-//    verify(postServiceMock, atLeastOnce()).save(expectedPost);
+    verify(userServiceMock).findByUsername("Alex");
   }
 
   @Test
