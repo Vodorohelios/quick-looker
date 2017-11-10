@@ -1,6 +1,19 @@
 -- create schema if not exists quick_looker;
+--
+-- set schema quick_looker;
+--
+-- drop table if exists users;
+--
+-- create table users(
+-- id int  primary key);
 
-use quick_looker;
+-- create schema if not exists quick_looker;
+
+drop schema if exists quick_looker;
+create schema quick_looker;
+set schema quick_looker;
+
+drop table if exists users;
 
 create table users(
 	username varchar(50) not null primary key,
