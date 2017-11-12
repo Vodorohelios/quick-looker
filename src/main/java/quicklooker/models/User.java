@@ -1,6 +1,7 @@
 package quicklooker.models;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -37,6 +38,7 @@ public class User {
 
     @Column(name="email")
     @NotNull
+    @NotEmpty(message = "Email may not be empty.")
     @Email(message="{email.valid}")
     private String email;
 

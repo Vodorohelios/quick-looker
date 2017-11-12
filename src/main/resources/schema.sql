@@ -1,5 +1,7 @@
 -- create schema if not exists quick_looker;
 
+create schema if not exists quick_looker;
+
 use quick_looker;
 
 create table users(

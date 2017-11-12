@@ -1,16 +1,19 @@
 body {
 	font-family: sans-serif;
+	background-color: #eeeeee;
 }
 
 label.error {
-	color: red;
+	color: black;
 }
 
 input.error {
-	background-color: #ffcccc;
+	background-color: white;
+	border: 1px solid red;
 }
 
 div.errors {
-	background-color: #ffcccc;
-	border: 2px solid red;
+	color: red;
 }
+
+/**/
