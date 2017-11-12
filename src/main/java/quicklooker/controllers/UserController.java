@@ -29,6 +29,12 @@ public class UserController {
     this.userService = userService;
   }
 
+  @RequestMapping(value="/users", method=GET)
+  public String showUsers(Model model) {
+        model.addAttribute("users", userService.findAll());
+        return "users";
+  }
+
   @RequestMapping(value="/register", method=GET)
   public String showRegistrationForm(Model model) {
     model.addAttribute("user", new User());

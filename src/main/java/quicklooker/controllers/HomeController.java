@@ -11,16 +11,8 @@ import quicklooker.services.UserService;
 @RequestMapping("/")
 public class HomeController {
 
-  private UserService userService;
-
-  @Autowired
-  HomeController(UserService userService) {
-    this.userService = userService;
-  }
-
   @RequestMapping(method = RequestMethod.GET)
   public String home(Model model) {
-    model.addAttribute("users", userService.findAll());
     return "home";
   }
 

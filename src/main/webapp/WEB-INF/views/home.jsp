@@ -11,27 +11,11 @@
   <body>
     <h1><s:message code="quicklooker.welcome" text="Welcome" /></h1>
 
-    <s:url value="/user/register" var="registerUrl" />
-    <a href="${registerUrl}">Register</a> |
+    <s:url value="/user/users" var="usersUrl"/>
+    <a href="${usersUrl}">Users</a> |
 
     <s:url value="/logout" var="logoutUrl" />
     <a href="${logoutUrl}">Logout</a> <br /><br />
 
-    <table border="1">
-        <tr>
-            <th>username</th>
-            <th>first name</th>
-            <th>last name</th>
-        </tr>
-        <c:forEach items="${users}" var="user" varStatus="status">
-            <tr>
-                <td><a href="<s:url value="/user/${user.username}" />">
-                    ${user.username}
-                </a></td>
-                <td>${user.firstName}</td>
-                <td>${user.lastName}</td>
-            </tr>
-        </c:forEach>
-    </table>
   </body>
 </html>
