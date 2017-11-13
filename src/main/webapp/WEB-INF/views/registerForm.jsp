@@ -60,6 +60,12 @@
                           cssErrorClass="error">Password</sf:label>:
                 <sf:input class="form-control" type="password" path="password" cssErrorClass="error form-control"/><br/>
                 <sf:errors path="password" element="div" cssClass="errors"/>
+            </div><div class="form-group col-sm-10">
+                <label name="passwordCheck"
+                          cssErrorClass="error">Confirm Password</label>:
+                <input class="form-control" type="password" name="passwordCheck" cssErrorClass="error form-control"/><br/>
+            </div>
+            <div class="form-group col-sm-10">
                 <br/>
                 <input type="submit" class="btn btn-primary" value="Register"/>
             </div>

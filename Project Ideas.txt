@@ -20,7 +20,8 @@ Pages:
     - after registration user appears at his own page
   + (login) page for authentication (Spring Security functionality)
 ============================================
-Functionality:
+Features:
+BACK END:
   + registering, user authentication and authorization
     +! first check crud operations with users and posts (create new users and posts from application)
     + use spring security
@@ -40,3 +41,6 @@ Functionality:
   - connecting a user's profile with those of other individuals or groups (friends and groups)
   - Add Internationalization and Localization (english and russian languages)
     - add ability to change language in settings
+
+FRONT END:
+  - Add menu to pages with important links (login/logout, home, profile page, settings etc).
