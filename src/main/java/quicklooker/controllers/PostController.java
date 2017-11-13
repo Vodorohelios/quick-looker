@@ -40,7 +40,7 @@ public class PostController {
     return "redirect:/user/{username}";
   }
 
-  @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
+  @RequestMapping(value="/delete/{id}", method = RequestMethod.POST)
   public String deletePost(
           @PathVariable("id") Long id,
           @RequestParam(value="username") String username,

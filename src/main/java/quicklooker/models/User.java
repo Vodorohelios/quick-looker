@@ -28,12 +28,12 @@ public class User {
 
     @Column(name="first_name")
     @NotNull
-    @Size(min=2, max=30, message="{firstName.size}")
+    @Size(min=5, max=30, message="{firstName.size}")
     private String firstName;
 
     @Column(name="last_name")
     @NotNull
-    @Size(min=2, max=30, message="{lastName.size}")
+    @Size(min=5, max=30, message="{lastName.size}")
     private String lastName;
 
     @Column(name="email")

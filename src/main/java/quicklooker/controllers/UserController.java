@@ -48,7 +48,10 @@ public class UserController {
       return "registerForm";
     }
 
+    // initialize user's posts
     user.setPosts(new HashSet<Post>());
+    // activate user profile
+    user.setEnabled(true);
     userService.save(user);
     model.addAttribute("username", user.getUsername());
     return "redirect:/user/{username}";

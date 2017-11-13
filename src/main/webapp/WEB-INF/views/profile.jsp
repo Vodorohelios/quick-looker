@@ -6,9 +6,9 @@
 <html>
 <head>
     <title>Quick Looker</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css"
           href="<c:url value="/resources/style.css" />">
 
@@ -16,7 +16,8 @@
         function deletePost(username, elementId, postId) {
             var xhttp;
             xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "/posts/delete/" + postId + "?username=" + username, true);
+            xhttp.open("POST", "${pageContext.request.contextPath}/posts/delete/"
+                + postId + "?_csrf=${_csrf.token}&username=" + username, true);
             xhttp.send();
 
             var element = document.getElementById(elementId);
@@ -82,7 +83,7 @@
     </c:forEach>
 </ul>
 
-    <div>
+    <security:authorize access="isAuthenticated() and principal.username == '${user.username}'">
         <s:url value="/user/delete/${user.username}" var="deleteUrl" />
         <form method="post" action="${deleteUrl}" class="form-inline form-group row">
             <div class="form-group">
@@ -90,7 +91,7 @@
                 <input type="submit" value="Delete this profile" class="form-control input-sm" />
             </div>
         </form>
-    </div>
+    </security:authorize>
 </div>
 </body>
 </html>

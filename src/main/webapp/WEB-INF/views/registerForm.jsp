@@ -25,13 +25,12 @@
 <body>
 <div id="register-box">
     <sf:form class="form-inline" method="POST" commandName="user">
-        <%--<sf:errors path="*" element="div" cssClass="errors"/>--%>
         <h2 class="form-heading">Register</h2>
         <div class="form-group">
             <div class="form-group col-sm-10">
                 <sf:label path="firstName"
                           cssErrorClass="error ">First Name</sf:label>:
-                <sf:input class="form-control-sm" path="firstName" cssErrorClass="error form-control"/><br/>
+                <sf:input class="form-control" path="firstName" cssErrorClass="error form-control"/><br/>
                 <sf:errors path="firstName" element="div" cssClass="errors"/>
             </div>
             <br/>

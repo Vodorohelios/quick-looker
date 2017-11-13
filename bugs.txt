@@ -1,0 +1,7 @@
+===========================================
+Bugs:
+  - Implement verification for existing username before registering new account
+  - Anonymous users can enter to anybody's profile page.
+  - (This bug probably will be solved after previous bug fixing): After user created (registered) his new account system should prompt him to login. But at the moment user lands on his profile page without authentication (which constrains him to post and delete on his own page).
+  + delete post button (implemented with js + ajax) doesn't work: error not found 404
+  > I think it is because I use tomcat plugin in maven where url root is differs from '/'
